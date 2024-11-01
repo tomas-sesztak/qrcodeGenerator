@@ -1,8 +1,13 @@
 package main
 
+import (
+	"github.com/tomas-sesztak/qrcodeGenerator/services"
+	"github.com/tomas-sesztak/qrcodeGenerator/utils"
+)
+
 func main() {
-	qrcInfo := parseFlags()
-	qrc := generateQRCode(qrcInfo.url)
-	options := setQRCodeOptions(qrcInfo)
-	writeQRCode(qrcInfo.file, qrc, options...)
+	qrcInfo := utils.ParseFlags()
+	qrc := services.GenerateQRCode(qrcInfo.Url)
+	options := services.SetQRCodeOptions(qrcInfo)
+	services.WriteQRCode(qrcInfo.File, qrc, options...)
 }

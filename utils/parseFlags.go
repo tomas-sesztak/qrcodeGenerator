@@ -1,21 +1,12 @@
-package main
+package utils
 
 import (
 	"flag"
 	"strings"
+	"github.com/tomas-sesztak/qrcodeGenerator/models"
 )
 
-type qrCodeInfo struct {
-	borderWidth        int
-	file               string
-	logoPath           string
-	logoSizeMultiplier uint8
-	transparentBg      bool
-	url                string
-	width              uint8
-}
-
-func parseFlags() qrCodeInfo {
+func ParseFlags() models.QrCodeInfo {
 	borderWidth := flag.Int("borderWidth", 0, "QR Border Width, default 0")
 	file := flag.String("file", "", "Path to final QRCode file(will be .png)")
 	logoPath := flag.String("logoPath", "", "Path to logo to be inserted")
@@ -37,13 +28,13 @@ func parseFlags() qrCodeInfo {
 		*file += ".png"
 	}
 
-	return qrCodeInfo{
-		borderWidth:        *borderWidth,
-		file:               *file,
-		logoPath:           *logoPath,
-		logoSizeMultiplier: uint8(*logoSizeMultiplier),
-		transparentBg:      *transparentBg,
-		url:                *url,
-		width:              uint8(*width),
+	return models.QrCodeInfo{
+		BorderWidth:        *borderWidth,
+		File:               *file,
+		LogoPath:           *logoPath,
+		LogoSizeMultiplier: uint8(*logoSizeMultiplier),
+		TransparentBg:      *transparentBg,
+		Url:                *url,
+		Width:              uint8(*width),
 	}
 }
