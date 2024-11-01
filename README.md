@@ -25,3 +25,7 @@ go run . [options]
 -width uint
 	QR size [0-255] (default 128)
 ```
+## Example
+```bash
+go run . -logoPath mylogo.png -url mysite.com -file final_qr.png
+```
