@@ -3,6 +3,9 @@ package utils
 import (
 	"flag"
 	"strings"
+
+	"github.com/tomas-sesztak/go-utils/argparse"
+
 	"github.com/tomas-sesztak/qrcodeGenerator/models"
 )
 
@@ -16,6 +19,7 @@ func ParseFlags() models.QrCodeInfo {
 	width := flag.Uint("width", 128, "QR size [0-255]")
 
 	flag.Parse()
+	argparse.ParseArgs(false, true)
 
 	if *width > 255 {
 		panic("qrWidth is of type uint8, accepted values [0-225]\n")

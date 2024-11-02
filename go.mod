@@ -3,6 +3,7 @@ module github.com/tomas-sesztak/qrcodeGenerator
 go 1.23.2
 
 require (
+	github.com/tomas-sesztak/go-utils v1.0.1
 	github.com/yeqown/go-qrcode/v2 v2.2.4
 	github.com/yeqown/go-qrcode/writer/standard v1.2.4
 )
